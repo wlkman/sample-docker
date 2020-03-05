@@ -1,0 +1,5 @@
+FROM centos
+RUN yum install -y curl
+#CMD ["curl","-s","http://ip.cn"]
+ENTRYPOINT ["curl","-s","http://ip.cn"]
+ONBUILD RUN echo "fater images hook"

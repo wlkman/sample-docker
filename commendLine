@@ -1,0 +1,36 @@
+####myCentos#########################################################
+#使用DockerFile myCentos构建镜像mycentos:1.3
+docker build -f dockerFiles/myCentos -t mycentos:1.3 .
+
+docker run -it mycentos:1.3
+
+vim abc.txt
+
+ifconfig
+
+docker history mycentos:1.3
+#########################################################
+docker run -it -p 7777:8080 tomcat ls -l
+
+####searchIP#########################################################
+docker build -f dockerFiles/searchIP -t myip .
+
+docker run -it myip
+
+
+####onbuild#########################################################
+docker build -f dockerFiles/searchIP -t fatherimage .
+
+docker run -it myip
+
+
+####myTomcat#########################################################
+http://localhost:9999/jspdemo/find
+
+docker build -f dockerFiles/myTomcat -t mytomcat .
+
+docker run -it -p 9999:8080 mytomcat 
+
+docker exec -it 8a1784aff67a /bin/bash
+
+ls -l

@@ -1,0 +1,14 @@
+#自制安装了vim和net-tools的centos
+FROM centos
+
+ENV mypath /tmp
+
+WORKDIR $mypath
+
+RUN yum -y install vim
+RUN yum -y install net-tools
+
+EXPOSE 80
+
+CMD echo $mypath
+CMD /bin/bash
