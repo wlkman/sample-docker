@@ -9,6 +9,9 @@ vim abc.txt
 ifconfig
 
 docker history mycentos:1.3
+
+#docker 当前运行状态
+docker stats
 #########################################################
 docker run -it -p 7777:8080 tomcat ls -l
 
@@ -34,3 +37,24 @@ docker exec -it 8a1784aff67a /bin/bash
 ls -l
 
 http://localhost:9999/servlet-0.0.2/ts
+
+####mysql#########################################################
+# docker run -p 3306:3306 --name mysql \
+# -v bak/mysql/conf:/etc/mysql/conf.d \
+# -v bak/mysql/logs:/logs \
+# -v bak/mysql/data:/var/lib/mysql \
+# -e MYSQL_ROOT_PASSWORD=123456 \
+# -d mysql:5.7.28
+docker run -p 3306:3306 --name mysql -v C:/bak/mysql/conf:/etc/mysql/conf.d -v C:/bak/mysql/logs:/logs -v C:/bak/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7.28
+
+docker exec -it 0e6afd512e47 /bin/bash
+
+mysql -urot -p
+
+mysql> show databases;
+
+mysql> create database db01;
+
+use db01;
+
+create table t_book(id int not null primary key, bookName varchar(20));
