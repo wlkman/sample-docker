@@ -5,6 +5,7 @@ COPY source/c.txt /usr/local/cincontainer.txt
 #把java与tomcat添加到容器中
 ADD source/jdk-8u241-linux-x64.tar.gz /usr/local/
 ADD source/apache-tomcat-9.0.31.tar.gz /usr/local/
+COPY source/servlet-0.0.2.war /usr/local/apache-tomcat-9.0.31/webapps/
 #安装vim编辑器
 RUN yum -y install vim
 #设置工作访问时候的WORKDIR路径，登陆落脚点

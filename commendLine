@@ -25,8 +25,6 @@ docker run -it myip
 
 
 ####myTomcat#########################################################
-http://localhost:9999/jspdemo/find
-
 docker build -f dockerFiles/myTomcat -t mytomcat .
 
 docker run -it -p 9999:8080 mytomcat 
@@ -34,3 +32,5 @@ docker run -it -p 9999:8080 mytomcat
 docker exec -it 8a1784aff67a /bin/bash
 
 ls -l
+
+http://localhost:9999/servlet-0.0.2/ts
