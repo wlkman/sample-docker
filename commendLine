@@ -50,11 +50,11 @@ docker run -p 3306:3306 --name mysql -v C:/bak/mysql/conf:/etc/mysql/conf.d -v C
 docker exec -it 0e6afd512e47 /bin/bash
 
 mysql -urot -p
-
 mysql> show databases;
-
 mysql> create database db01;
-
 use db01;
-
 create table t_book(id int not null primary key, bookName varchar(20));
+select * from t_book;
+
+#备份数据库
+docker exec 0e6afd512e47 sh -c 'exec mysqldump --all-databases -uroot -p"123456"' > C:/bak/mysql/all_databases.sql
