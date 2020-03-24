@@ -12,6 +12,9 @@ docker history mycentos:1.3
 
 #docker 当前运行状态
 docker stats
+#从容器创建一个新的镜像
+docker commit -a "touny" -m "touny's ubuntu" fa82096370f5 ubuntutouny:1
+
 #########################################################
 docker run -it -p 7777:8080 tomcat ls -l
 
@@ -58,3 +61,5 @@ select * from t_book;
 
 #备份数据库
 docker exec 0e6afd512e47 sh -c 'exec mysqldump --all-databases -uroot -p"123456"' > C:/bak/mysql/all_databases.sql
+
+
