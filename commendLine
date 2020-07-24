@@ -62,4 +62,5 @@ select * from t_book;
 #备份数据库
 docker exec 0e6afd512e47 sh -c 'exec mysqldump --all-databases -uroot -p"123456"' > C:/bak/mysql/all_databases.sql
 
-
+#修改mysql不区分table大小写（修改参数 /etc/my.cnf 中设置 lower_case_table_names = 1）
+vi /etc/mysql/mysql.conf.d/mysqld.cnf
