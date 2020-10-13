@@ -1,3 +1,17 @@
+#创建镜像
+docker build -t esmtcappcicd:v1 .
+#创建容器
+docker create esmtcappcicd:v1
+#登陆docker仓库
+docker login us.icr.io -u iamapikey -p EHoNIUA_XHV3TXcHhLD5ciTunK0JR86
+#打标签后会生成新的镜像
+docker tag de.icr.io/cloud_ns/base_image:latest us.icr.io/namespace1/base_image:latest
+#拉取镜像
+docker pull us.icr.io/cloud_ns/base_image
+#上传镜像
+docker push us.icr.io/namespace1/base_image:latest
+
+
 ####myCentos#########################################################
 #使用DockerFile myCentos构建镜像mycentos:1.3
 docker build -f dockerFiles/myCentos -t mycentos:1.3 .
