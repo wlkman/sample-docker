@@ -1,7 +1,22 @@
-#创建镜像
+#根据dockerfile创建镜像
 docker build -t esmtcappcicd:v1 .
-#创建容器
+#镜像前面跟上自己的账号才能push到自己的docker hub上
+docker build -t palasi/helloworld:v1.0.0 .
+#查看创建好的镜像
+docker images
+#根据镜像创建容器
 docker create esmtcappcicd:v1
+#运行并进入容器
+docker run -it mycentos:1.3
+#退出容器
+exit
+#进入运行中的容器
+docker exec -it 容器名 /bin/bash
+#登录到docker hub
+docker login docker.io
+
+
+
 #登陆docker仓库
 docker login us.icr.io -u iamapikey -p EHoNIUA_XHV3TXcHhLD5ciTunK0JR86
 #打标签后会生成新的镜像
@@ -10,7 +25,8 @@ docker tag de.icr.io/cloud_ns/base_image:latest us.icr.io/namespace1/base_image:
 docker pull us.icr.io/cloud_ns/base_image
 #上传镜像
 docker push us.icr.io/namespace1/base_image:latest
-
+#上传到docker自己镜像下
+docker push palasi/helloworld:v1.0.0
 
 ####myCentos#########################################################
 #使用DockerFile myCentos构建镜像mycentos:1.3
@@ -62,6 +78,8 @@ http://localhost:9999/servlet-0.0.2/ts
 # -v bak/mysql/data:/var/lib/mysql \
 # -e MYSQL_ROOT_PASSWORD=123456 \
 # -d mysql:5.7.28
+
+#volume在docker中的意思表示将宿主机上的目录挂在到docker容器中，这样可以保持数据持久化，当将容器删除时，数据不会丢失
 docker run -p 3306:3306 --name mysql -v C:/bak/mysql/conf:/etc/mysql/conf.d -v C:/bak/mysql/logs:/logs -v C:/bak/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7.28
 
 docker exec -it 0e6afd512e47 /bin/bash
