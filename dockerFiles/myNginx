@@ -1,0 +1,9 @@
+FROM nginx:latest
+## Replace the default nginx index page with our index
+RUN rm -rf /usr/share/nginx/html/*
+COPY source/index.html /usr/share/nginx/html/index.html
+# Expose port 80
+EXPOSE 80
+#nginx -g daemon off;. This entry point ensures that NGINX stays in the foreground, 
+#so that docker can track the process properly (otherwise the container will stop immediately after starting)!
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

@@ -79,7 +79,7 @@ http://localhost:9999/servlet-0.0.2/ts
 # -e MYSQL_ROOT_PASSWORD=123456 \
 # -d mysql:5.7.28
 
-#volume在docker中的意思表示将宿主机上的目录挂在到docker容器中，这样可以保持数据持久化，当将容器删除时，数据不会丢失
+#volume（-v）在docker中的意思表示将宿主机上的目录挂在到docker容器中，这样可以保持数据持久化，当将容器删除时，数据不会丢失
 docker run -p 3306:3306 --name mysql -v C:/bak/mysql/conf:/etc/mysql/conf.d -v C:/bak/mysql/logs:/logs -v C:/bak/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7.28
 
 docker exec -it 0e6afd512e47 /bin/bash
